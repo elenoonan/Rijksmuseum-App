@@ -46,11 +46,11 @@ class ArtObj extends React.Component{
   render(){
     return(
       <div style={{'borderStyle': 'solid'}}>
-      <p>{this.props.id}</p>
-      <p>{this.props.longTitle}</p>
-      <p>{this.props.links}</p>
-      <img src={this.props.webImage} alt="painting"/>
-      <p>{this.props.principalOrFirstMaker}</p>
+        <p>{this.props.id}</p>
+        <p>{this.props.longTitle}</p>
+        <p>{this.props.links}</p>
+        <img src={this.props.webImage} alt="painting"/>
+        <p>{this.props.principalOrFirstMaker}</p>
       </div>
     );
   }
