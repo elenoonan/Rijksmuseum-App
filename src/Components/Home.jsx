@@ -34,13 +34,25 @@ class Home extends React.Component {
       return <ArtObj key={i} id={u.id} longTitle={u.longTitle} links={u.links.web} webImage={u.webImage.url} principalOrFirstMaker={u.principalOrFirstMaker}/>;
     });
     return(
-      <Grid fluid={true}>
-      <div>
-        <h2>Welcome to the Full Rijks Museum Collection</h2>
-          <div>
+      <Grid fluid={true} className="content-wrapper text-center">
+        <div>
+          <h2>Welcome to the Full Rijks Museum Collection</h2>
+        </div>
+
+        <Row className="show-grid text-center">
+
+          <Col xs={6} md={4} className="art-wrapper">
             {list}
-          </div>
-      </div>
+          </Col>
+          <Col xs={6} md={4} className="art-wrapper">
+            {list}
+          </Col>
+          <Col xsHidden md={4} className="art-wrapper">
+            {list}
+          </Col>
+
+        </Row>
+
       </Grid>
       );
     }
@@ -50,13 +62,12 @@ class Home extends React.Component {
 class ArtObj extends React.Component{
   render(){
     return(
-      <div>
-        <p>{this.props.id}</p>
-        <p>{this.props.longTitle}</p>
-        <p>{this.props.links}</p>
-        <img src={this.props.webImage} alt="painting"/>
-        <p>{this.props.principalOrFirstMaker}</p>
-      </div>
+      <Grid fluid={true}>
+            <Image src={this.props.webImage} alt="art" rounded className="painting"/>
+            <h3>{this.props.longTitle}</h3>
+            <h2>{this.props.principalOrFirstMaker}</h2>
+            <p>{this.props.links}</p>
+      </Grid>
     );
   }
 }
