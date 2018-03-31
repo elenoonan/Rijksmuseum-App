@@ -35,7 +35,7 @@ render(){
             </Navbar.Collapse>
         </Navbar>
         <Jumbotron>
-          <h1>My Rijks Museum Collection</h1>
+          <h1>My Rijksmuseum Collection</h1>
         </Jumbotron>
         <div className="content">
           <Route exact path="/" component={Home}/>

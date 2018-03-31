@@ -22,8 +22,10 @@ class Features extends React.Component {
       throw new Error('Request failed.');
     })
     .then(data => {
-      console.log(data)
-      this.setState({artObject: data.artObject});
+      console.log(data);
+      this.setState({
+        artObject: [data.artObject]
+      });
     })
     .catch(error => {
       console.log(error);
@@ -31,8 +33,9 @@ class Features extends React.Component {
   }
 
   render() {
-    const artFeature = this.state.artObject.map((u) => {
-      return <ArtObj longTitle={u.longTitle}/>;
+    const artFeature = this.state.artObject.map((u, i) => {
+      console.log("artFeature");
+      return <ArtObj key={i} id={u.id} longTitle={u.longTitle} webImage={u.webImage.url} plaqueDescriptionEnglish={u.plaqueDescriptionEnglish} />;
     });
 
 
@@ -57,6 +60,10 @@ class ArtObj extends React.Component{
       <div>
 
           <p>{this.props.longTitle}</p>
+          <p>{this.props.plaqueDescriptionEnglish}</p>
+          <Image src={this.props.webImage} alt="art" rounded className="featurePainting" />
+
+
 
       </div>
     );

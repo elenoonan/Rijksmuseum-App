@@ -5,32 +5,60 @@ class Search extends React.Component {
   constructor(){
     super();
     this.state = {
-      artObjects:[]
+      artObjects:[],
+      searchText: ''
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+
   }
 
   componentWillMount(){
     //search url
     //https://www.rijksmuseum.nl/api/nl/collection?key=WwWyPkzY&format=json&q=SEARCH_TERM
-    fetch('https://www.rijksmuseum.nl/api/en/collection?key=WwWyPkzY&format=json&q=nameMatch')
+    fetch('https://www.rijksmuseum.nl/api/en/collection?key=WwWyPkzY&format=json&q=&ps=50')
     .then(response => {
       if(response.ok) return response.json();
       throw new Error('Request failed.');
     })
     .then(data => {
-      console.log(data)
-      this.setState({artObjects: data.artObjects});
+
+      const artObjects = data.artObjects.map(u => {
+        return {longTitle: u.longTitle,
+          webImage: u.webImage,
+          principalOrFirstMaker: u.principalOrFirstMaker};
+      });
+      this.setState({artObjects: artObjects});
     })
     .catch(error => {
       console.log(error);
     });
   }
 
+  handleChange(event) {
+      // handle both of the <select> UI elements
+      const target = event.target;
+      const value = target.type === 'checkbox' ? target.checked : target.value;
+      const name = target.name;
+
+      this.setState({
+        [name]: value
+      });
+    }
+
+    handleClick(event) {
+      // handle the toggle <button>
+      const name = event.target.name;
+      this.setState(prevState => ({
+         [name]: !prevState[name]
+      }));
+    }
+
   render() {
     let searchList = this.state.artObjects.map(u => {
-      const nameMatch = u.principalOrFirstMaker(this.state.searchText);
+      let nameMatch = u.principalOrFirstMaker.startsWith(this.state.searchText);
       return (nameMatch) ? (
-        <ArtObj id={u.id} longTitle={u.longTitle} links={u.links.web} webImage={u.webImage.url} principalOrFirstMaker={u.principalOrFirstMaker}/>
+        <ArtObj id={u.id} longTitle={u.longTitle} webImage={u.webImage.url} principalOrFirstMaker={u.principalOrFirstMaker}/>
       ) : null;
     });
 
