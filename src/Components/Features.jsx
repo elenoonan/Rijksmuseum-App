@@ -1,5 +1,5 @@
 import React from "react";
-import{Jumbotron, Grid, Row, Col, Image, Button} from 'react-bootstrap';
+import{Grid, Image} from 'react-bootstrap';
 import './Home.css';
 
 class Features extends React.Component {
@@ -43,7 +43,7 @@ class Features extends React.Component {
     return(
       <Grid fluid={true}>
       <div>
-        <h2>Featured Artists</h2>
+        <h2>Featured Work</h2>
           <div>
             {artFeature}
           </div>

@@ -1,5 +1,6 @@
   import React from "react";
-import{Jumbotron, Grid, Row, Col, Image, Button, Table} from 'react-bootstrap';
+import{Container,  Row, Col, Card, CardImg, CardText, CardBody,
+  CardTitle, CardSubtitle, } from 'reactstrap';
 import './Home.css';
 
 class Home extends React.Component {
@@ -15,7 +16,7 @@ class Home extends React.Component {
     //https://www.rijksmuseum.nl/api/nl/collection?key=WwWyPkzY&format=json&q=SEARCH_TERM
     //https://www.rijksmuseum.nl/api/nl/collection/sk-c-5?key=WwWyPkzY&format=json=&ps=20
     //https://www.rijksmuseum.nl/api/en/collection?key=WwWyPkzY&format=json=&ps=20
-    fetch('https://www.rijksmuseum.nl/api/en/collection?key=WwWyPkzY&format=json=&ps=60')
+    fetch('https://www.rijksmuseum.nl/api/en/collection?key=WwWyPkzY&format=json=&ps=100')
     .then(response => {
       if(response.ok) return response.json();
       throw new Error('Request failed.');
@@ -30,13 +31,13 @@ class Home extends React.Component {
   }
 
   render() {
-    const list = this.state.artObjects.map((u, i) => {
-      return <Col xs={6} md={6} className="art-wrapper">
-        <ArtObj key={i} id={u.id} longTitle={u.longTitle} links={u.links.web} webImage={u.webImage.url} principalOrFirstMaker={u.principalOrFirstMaker}/>;
+    const list = this.state.artObjects.map((u, index) => {
+      return <Col key={index} xs={6} md={6} className="art-wrapper">
+        <ArtObj  id={u.id} longTitle={u.longTitle} links={u.links.web} webImage={u.webImage ?  u.webImage.url : 'http://via.placeholder.com/350x150'} principalOrFirstMaker={u.principalOrFirstMaker}/>
       </Col>
     });
     return(
-      <Grid fluid={true} className="content-wrapper text-center">
+      <Container>
         <div>
           <h2>Welcome to the Full Rijksmuseum Collection</h2>
         </div>
@@ -44,7 +45,7 @@ class Home extends React.Component {
         <Row className="show-grid text-center">
           {list}
         </Row>
-      </Grid>
+      </Container>
       );
     }
   }
@@ -53,12 +54,16 @@ class Home extends React.Component {
 class ArtObj extends React.Component{
   render(){
     return(
-      <Grid fluid={true} className="content-wrapper text-center">
-          <Image src={this.props.webImage} alt="art" rounded className="painting"/>
-          <h3>{this.props.longTitle}</h3>
-          <h2>{this.props.principalOrFirstMaker}</h2>
-          <p>{this.props.links}</p>
-      </Grid>
+      <div>
+        <Card>
+            <CardImg top width="100%" src={this.props.webImage} alt="art" className="painting"/>
+            <CardBody>
+            <CardTitle>{this.props.longTitle}</CardTitle>
+            <CardSubtitle>{this.props.principalOrFirstMaker}</CardSubtitle>
+            <CardText>{this.props.links}</CardText>
+            </CardBody>
+        </Card>
+      </div>
     );
   }
 }

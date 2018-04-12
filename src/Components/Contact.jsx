@@ -4,9 +4,9 @@ class Contact extends React.Component {
   render() {
     return (
       <div>
-        <h2>GOT QUESTIONS?</h2>
-        <p>The easiest thing to do is post on
-        our <a href="http://forum.kirupa.com">forums</a>.
+        <h2>For More Information On The Rijksmuseum Collectio</h2>
+        <p>Please follow this link:
+        our <a href="https://www.rijksmuseum.nl/en">rijksmuseum</a>.
         </p>
       </div>
     );
