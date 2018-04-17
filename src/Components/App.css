@@ -10,7 +10,7 @@
 }
 
 jumbotron .h1, .jumbotron h1 {
-padding-top: 200px; 
+padding-top: 200px;
 color: white;
 }
 
@@ -19,6 +19,8 @@ color: white;
     min-height: 100px;
     margin-bottom: 20px;
     border: 1px solid transparent;
+    background-color: #D5D5D5;
+    margin-top: 20px;
 }
 
 body {
@@ -26,12 +28,117 @@ body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
     font-size: 32px;
     line-height: 1.42857143;
-    color: #333;
-    background-color: #fff;
+    color: #96858F;
+
+}
+
+#root{
+  background-color: #96858F;
+}
+
+.container{
+  background-color: #96858F;
+}
+
+div.content{
+  background-color: #96858F;
+
 }
 
 li {
     padding-top: 25px;
     display: list-item;
     text-align: -webkit-match-parent;
+}
+
+a.nav-link{
+  color: #000;
+  font-family: sans-serif "Helvetica Neue";
+  font-size: 20px;
+}
+
+.content h2 {
+  margin-bottom: 32px;
+  text-align: center;
+  font-size: 32px;
+}
+
+img{
+  max-width: 100%;
+  height: auto;
+}
+
+p{
+  font-family: sans-serif "Helvetica Neue";
+  font-size: 12px;
+  line-height: 24px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+div.card{
+  border: 0px;
+  width: auto;
+  height: auto;
+  margin-bottom: 20px;
+}
+.card-body{
+  background-color: #96858F;
+}
+
+h5.card-title{
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 22px;
+  text-align: center;
+}
+
+h6.card-subtitle{
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+}
+
+div.show-grid.row{
+  row-gap: 20px;;
+}
+
+div.grid-title{
+  margin-bottom: 32px;
+}
+
+button.btn.btn-secondary{
+    background-color: #6D7993;
+    font-size: 20px;
+}
+
+div.search-header{
+  margin-bottom: 32px;
+}
+
+div.field.is-horizontal{
+  margin-bottom: 32px;
+}
+
+h3{
+  font-size: 28px;
+  text-align: center;
+  font-weight: bold;
+  padding-top: 40px;
+  padding-bottom: 20px;
+}
+
+img.favImage{
+  width: 40px;
+  height: 40px;
+  background-color: #96858F;
+}
+
+button.favButton.btn.btn-secondary{
+  background-color: #96858F;
+  border: 0px;
+}
+
+div.modal.dialog{
+  width: 800px;
+  height: 800px;
 }

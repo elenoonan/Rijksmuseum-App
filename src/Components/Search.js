@@ -1,6 +1,8 @@
 import React from "react";
 import LabelledInput from './LabelledInput';
 import DropDown from './DropDown';
+import{Container, Row, Col} from 'reactstrap';
+import ArtObj from './ArtObj';
 
 class Search extends React.Component {
   constructor(){
@@ -84,38 +86,31 @@ class Search extends React.Component {
      : this.state.artistSelected === u.principalOrFirstMaker
    )
    .map((u, index) => {
-     return(
-       <ArtObj key={index} id={u.id} longTitle={u.longTitle} webImage={u.webImage ?  u.webImage.url : 'http://via.placeholder.com/350x150'} principalOrFirstMaker={u.principalOrFirstMaker}/>
+     return(<Col key={index} xs={4} md={4} className="art-wrapper">
+       <ArtObj id={u.id} longTitle={u.longTitle} webImage={u.webImage ?  u.webImage.url : 'http://via.placeholder.com/350x150'} principalOrFirstMaker={u.principalOrFirstMaker}/>
+       </Col>
      );
    });
 
     return(
-      <section className='section'>
-      <div>
-        <LabelledInput name='searchText' label='Search by name' value={this.state.searchText} handleChange={this.handleChange} placeholder={"e.g. vermeer"} />
-        <DropDown options={['all'].concat(this.state.artistOptions)} name="artistSelected" handleChange={this.handleChange} label="Filter by artist" selected={this.state.artistSelected} />
-          <div>
-            {searchList}
-          </div>
+      <Container>
+      <div className="grid-header">
+        <div className="search-header">
+          <LabelledInput name='searchText' label='Search by name' value={this.state.searchText} handleChange={this.handleChange} placeholder={"e.g. vermeer"} />
+          <DropDown options={['all'].concat(this.state.artistOptions)} name="artistSelected" handleChange={this.handleChange} label="Filter by artist" selected={this.state.artistSelected} />
+        </div>
+        <Row className="show-grid">
+              {searchList}
+        </Row>
       </div>
-      </section>
+      </Container>
       );
     }
   }
 
 
-class ArtObj extends React.Component{
-  render(){
-    return(
-      <div>
-        <p>{this.props.id}</p>
-        <p>{this.props.longTitle}</p>
-        <p>{this.props.links}</p>
-        <img src={this.props.webImage} thumbnail="true" alt="painting"/>
-        <p>{this.props.principalOrFirstMaker}</p>
-      </div>
-    );
-  }
-}
+
+
+
 
 export default Search;

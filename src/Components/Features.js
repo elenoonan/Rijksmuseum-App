@@ -1,6 +1,6 @@
 import React from "react";
 import{Grid, Image} from 'react-bootstrap';
-import './Home.css';
+
 
 class Features extends React.Component {
   constructor(){
@@ -39,7 +39,6 @@ class Features extends React.Component {
     });
 
 
-
     return(
       <Grid fluid={true}>
       <div>
@@ -58,13 +57,9 @@ class ArtObj extends React.Component{
   render(){
     return(
       <div>
-
-          <p>{this.props.longTitle}</p>
+          <h3>{this.props.longTitle}</h3>
           <p>{this.props.plaqueDescriptionEnglish}</p>
           <Image src={this.props.webImage} alt="art" rounded className="featurePainting" />
-
-
-
       </div>
     );
   }
