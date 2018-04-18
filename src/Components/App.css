@@ -33,15 +33,15 @@ body {
 }
 
 #root{
-  background-color: #96858F;
+  background-color: #8EAEBD;
 }
 
 .container{
-  background-color: #96858F;
+  background-color: #8EAEBD;
 }
 
 div.content{
-  background-color: #96858F;
+  background-color: #8EAEBD;
 
 }
 
@@ -82,20 +82,22 @@ div.card{
   margin-bottom: 20px;
 }
 .card-body{
-  background-color: #96858F;
+  background-color: #67787F;
 }
 
 h5.card-title{
-  font-weight: bold;
-  font-size: 16px;
+  font-weight: normal;
+  font-size: 18px;
   margin-bottom: 22px;
   text-align: center;
+
 }
 
 h6.card-subtitle{
-  font-weight: bold;
-  font-size: 12px;
+  font-weight: normal;
+  font-size: 16px;
   text-align: center;
+  color: white;
 }
 
 div.show-grid.row{
@@ -107,8 +109,9 @@ div.grid-title{
 }
 
 button.btn.btn-secondary{
-    background-color: #6D7993;
+    background-color: #31415D;
     font-size: 20px;
+
 }
 
 div.search-header{
@@ -130,15 +133,37 @@ h3{
 img.favImage{
   width: 40px;
   height: 40px;
-  background-color: #96858F;
+  background-color: #67787F;
 }
 
 button.favButton.btn.btn-secondary{
-  background-color: #96858F;
+  background-color: #67787F;
   border: 0px;
+
 }
 
-div.modal.dialog{
-  width: 800px;
-  height: 800px;
+label.label{
+  font-size: 14px;
+  color: black;
+}
+
+input.input{
+  width: 300px;
+  height: 50px;
+  font-size: 12px;
+}
+
+select{
+  width: 300px;
+  height: 50px;
+  font-size: 12px;
+}
+
+li.nav-item{
+  font-size: 22px;
+}
+
+a.nav-link{
+  font-size: 24px;
+  font-family: sans-serif Helvetica;
 }

@@ -24,13 +24,14 @@ class ArtObj extends React.Component{
   render(){
     let srcFav = '';
     if (this.state.like) {
-      srcFav = window.location.origin + '/favourite2.png';
+      srcFav = window.location.origin + '/favourite3.png';
     } else {
       srcFav = window.location.origin + '/favourite1.png';
     }
 
     return(
       <div>
+
         <Card>
             <CardImg top width="100%" src={this.props.webImage} alt="art" className="painting"/>
               <CardBody>
@@ -40,11 +41,11 @@ class ArtObj extends React.Component{
 
                   <MyModal longTitle={this.props.longTitle} webImage={this.props.webImage} />
 
-
-                  <Button onClick={this.liked} className="favButton"><img src={srcFav} alt="favImage" className="favImage" /></Button>
+                  <Button onClick={this.liked} className="favButton"><img src={srcFav} alt="favImage" className="favImage"/></Button>
 
               </CardBody>
         </Card>
+
       </div>
     );
   }

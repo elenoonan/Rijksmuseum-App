@@ -23,28 +23,30 @@ render(){
               <NavLink href="/">Home</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/search" to="/search" tag={RRNavLink}>Search Options</NavLink>
+              <NavLink href="/features" to="/features" >Featured Work</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/features" to="/features" tag={RRNavLink}>Featured Work</NavLink>
-            </NavItem>
-              <NavItem> <NavLink href="/contact" to="/contact" tag={RRNavLink}>Contact</NavLink>
+              <NavLink href="/artistofday" to="/artistofday" >Artist Of Day</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/artistofday" to="/artistofday" tag={RRNavLink}>Artist Of Day</NavLink>
+              <NavLink href="/search" to="/search" >Search Options</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/contact" to="/contact" >Contact</NavLink>
             </NavItem>
           </Nav>
-
         </Navbar>
+
         <Jumbotron>
           <h1>My Rijksmuseum Collection</h1>
         </Jumbotron>
+
         <div className="content">
           <Route exact path="/" component={Home}/>
-          <Route path="/search" component={Search}/>
-          <Route path="/features" component={Features}/>
-          <Route path="/contact" component={Contact}/>
           <Route path="/artistofday" component={ArtistOfDay}/>
+          <Route path="/features" component={Features}/>
+          <Route path="/search" component={Search}/>
+          <Route path="/contact" component={Contact}/>
         </div>
 
       </Container>

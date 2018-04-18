@@ -41,7 +41,6 @@ class Search extends React.Component {
       const artist = data.artObjects.map(u => {
         return {principalOrFirstMaker: u.principalOrFirstMaker};
       });
-      console.log(artist);
 
       const deduped = [...new Set(artist)];
       deduped.sort();
@@ -86,7 +85,7 @@ class Search extends React.Component {
      : this.state.artistSelected === u.principalOrFirstMaker
    )
    .map((u, index) => {
-     return(<Col key={index} xs={4} md={4} className="art-wrapper">
+     return(<Col key={index} xs={3} md={3} className="art-wrapper">
        <ArtObj id={u.id} longTitle={u.longTitle} webImage={u.webImage ?  u.webImage.url : 'http://via.placeholder.com/350x150'} principalOrFirstMaker={u.principalOrFirstMaker}/>
        </Col>
      );
@@ -96,8 +95,8 @@ class Search extends React.Component {
       <Container>
       <div className="grid-header">
         <div className="search-header">
-          <LabelledInput name='searchText' label='Search by name' value={this.state.searchText} handleChange={this.handleChange} placeholder={"e.g. vermeer"} />
-          <DropDown options={['all'].concat(this.state.artistOptions)} name="artistSelected" handleChange={this.handleChange} label="Filter by artist" selected={this.state.artistSelected} />
+          <LabelledInput name='searchText' label='Search by artist name' value={this.state.searchText} handleChange={this.handleChange} placeholder={"e.g. vermeer"} />
+          <DropDown options={['all'].concat(this.state.artistOptions)} name="artistSelected" handleChange={this.handleChange} label="Filter by artist name" selected={this.state.artistSelected} />
         </div>
         <Row className="show-grid">
               {searchList}

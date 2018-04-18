@@ -1,5 +1,5 @@
 import React from "react";
-import{Container,  Row, Col} from 'reactstrap';
+import{Container, Row, Col} from 'reactstrap';
 import ArtObj from './ArtObj';
 
 
@@ -11,17 +11,10 @@ class Home extends React.Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
-    /*this.toggle = this.toggle.bind(this);
-    /*this.onClick={this.open.bind(this)};*/
-    /*  this.open = this.open.bind(this);*/
   }
 
   componentWillMount(){
-    //search url
-    //https://www.rijksmuseum.nl/api/nl/collection?key=WwWyPkzY&format=json&q=SEARCH_TERM
-    //https://www.rijksmuseum.nl/api/nl/collection/sk-c-5?key=WwWyPkzY&format=json=&ps=20
-    //https://www.rijksmuseum.nl/api/en/collection?key=WwWyPkzY&format=json=&ps=20
-    //https://www.rijksmuseum.nl/en/search?q=Vermeer&p=1&ps=12&type=painting&st=Objects
+
     fetch('https://www.rijksmuseum.nl/api/en/collection?key=WwWyPkzY&type=painting&format=json=&ps=500')
     .then(response => {
       if(response.ok) return response.json();
@@ -41,7 +34,6 @@ class Home extends React.Component {
       const target = event.target;
       const value = target.type === 'checkbox' ? target.checked : target.value;
       const name = target.name;
-
       this.setState({
         [name]: value
       });
@@ -55,11 +47,9 @@ class Home extends React.Component {
       }));
     }
 
-
-
   render() {
     const list = this.state.artObjects.map((u, index) => {
-      return <Col key={index} xs={3} md={3} className="art-wrapper">
+      return <Col key={index} xs={4} md={4} className="art-wrapper">
         <ArtObj  id={u.id} longTitle={u.longTitle} links={u.links.web} webImage={u.webImage ?  u.webImage.url : 'http://via.placeholder.com/350x150'} principalOrFirstMaker={u.principalOrFirstMaker}/>
       </Col>
     });
@@ -76,9 +66,5 @@ class Home extends React.Component {
       );
     }
   }
-
-
-
-
 
 export default Home;

@@ -24,16 +24,19 @@ class MyModal extends React.Component {
         <Button color="secondary" onClick={this.toggle}>MODAL</Button>
 
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+
           <ModalHeader toggle={this.toggle}>
             <CardTitle>{this.props.longTitle}</CardTitle>
           </ModalHeader>
+
           <ModalBody>
             <CardImg top width="100%" src={this.props.webImage} alt="art" className="painting"/>
           </ModalBody>
-          <ModalFooter>
 
+          <ModalFooter>
             <Button color="secondary" onClick={this.toggle}>Clear</Button>
           </ModalFooter>
+          
         </Modal>
       </div>
     );
