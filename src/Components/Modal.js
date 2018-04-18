@@ -34,9 +34,9 @@ class MyModal extends React.Component {
           </ModalBody>
 
           <ModalFooter>
-            <Button color="secondary" onClick={this.toggle}>Clear</Button>
+            <Button color="secondary" onClick={this.toggle}>Close</Button>
           </ModalFooter>
-          
+
         </Modal>
       </div>
     );
